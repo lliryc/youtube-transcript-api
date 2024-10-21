@@ -65,6 +65,7 @@ class YouTubeTranscriptApi(object):
         :rtype TranscriptList:
         """
         with requests.Session() as http_client:
+            http_client.verify = False
             if cookies:
                 http_client.cookies = cls._load_cookies(cookies, video_id)
             http_client.proxies = proxies if proxies else {}
